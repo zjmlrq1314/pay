@@ -121,12 +121,21 @@ function show_status($status, $id, $field = 'id', $controller = '')
 }
 
 /**
+ * 获取代理商名称
+ * @param $id
+ * @return mixed
+ */
+function get_agent_name($id){
+    return \think\Db::name('agent')->where(array('id'=>$id))->value('user_name');
+}
+
+/**
  * 显示状态
  * @param int $status     0|1|-1
  * @param bool $imageShow true只显示图标|false只显示文字
  * @return string
  */
-function get_status($status, $imageShow = true)
+function get_status($status, $imageShow = false)
 {
     switch ($status) {
         case 0 :
@@ -145,6 +154,30 @@ function get_status($status, $imageShow = true)
     }
 
     return ($imageShow === true) ? $showImg : $showText;
+}
+
+/**
+ * 代理商显示状态
+ * @param int $status     0|1|-1
+ * @param bool $imageShow true只显示图标|false只显示文字
+ * @return string
+ */
+function get_status_for_agent($status)
+{
+    switch ($status) {
+        case -1 :
+            $showText = '禁用';
+            break;
+        case 1 :
+            $showText = '正常';
+            break;
+        case 0 :
+        default :
+            $showText = '未审核';
+
+    }
+
+    return $showText;
 }
 
 /**

@@ -27,6 +27,7 @@ trait Controller
 
         // 列表过滤器，生成查询Map对象
         $map = $this->search($model, [$this->fieldIsDelete => $this::$isdelete]);
+        var_export($map);
 
         // 特殊过滤器，后缀是方法名的
         $actionFilter = 'filter' . $this->request->action();
