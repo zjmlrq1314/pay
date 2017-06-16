@@ -1,0 +1,36 @@
+{extend name="template/base" /}
+{block name="title"}我的桌面{/block}
+{block name="content"}
+<div class="page-container">
+    <h2><font style="margin-left: 500px;">欢迎进入:{$info['realname']} 管理专区</font></h2>
+    <div style="margin-left: 200px; float: left; margin-top: 80px;">
+        <table>
+            <tr><th style="font-size: 25px"><font color="blue">《{$info['realname']}的记录》</font> </th></tr>
+            <tr><td>&nbsp;</td></tr>
+            <tr>
+                <td style="font-size: 15px"> <font color="gray">邮箱</font>:&nbsp;&nbsp;&nbsp;{$info['email']}</td>
+            </tr>
+            <tr><td>&nbsp;</td></tr>
+            <tr>
+                <td style="font-size: 15px"><font color="gray">电话</font>:&nbsp;&nbsp;&nbsp;{$info['mobile']}</td>
+            </tr>
+            <tr><td>&nbsp;</td></tr>
+            <tr>
+                <td style="font-size: 15px"><font color="gray">本次共登录</font>:&nbsp;&nbsp;&nbsp;{$info['login_count']}<font color="gray"> 次</font></td>
+            </tr>
+            <tr><td>&nbsp;</td></tr>
+            <tr>
+                <td style="font-size: 15px"><font color="gray">最后登录时间</font>:&nbsp;&nbsp;&nbsp;{$info['last_login_time|date="Y-m-d H:i:s",###']}</td>
+            </tr>
+            <tr><td>&nbsp;</td></tr>
+            <tr>
+                <td style="font-size: 15px"><font color="gray">最后登录IP</font>:&nbsp;&nbsp;&nbsp;{$info['last_login_ip']}</td>
+            </tr>
+
+        </table>
+    </div>
+    <div id="main" style="width: 600px;height:400px; float: left; margin-top: 60px;"></div>
+    <div id="main_price" style="width: 600px;height:400px; float: left; margin-left: 100px; margin-top: 60px;"></div>
+    <div id="main_gain" style="width: 1000px;height:550px; float: left; margin-top: 60px; margin-left: 180px;"></div>
+</div>
+{/block}

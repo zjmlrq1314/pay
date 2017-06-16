@@ -1,0 +1,87 @@
+{extend name="template/base" /}
+{block name="style"}
+<style>
+    .tab{
+        height: 50px;
+        line-height: 50px;
+        border-bottom: 1px solid #000000;
+    }
+    .tab a{
+        height: 50px;
+        line-height: 50px;
+        text-decoration: none;
+    }
+    .tab a.active{
+        background: #000000;
+        color: #ffffff;
+    }
+    legend{
+        text-align: center;
+    }
+</style>
+{/block}
+{block name="content"}
+<div class="page-container">
+    <div class="row cl tab">
+        <a href="{:url('index/agent')}" class="col-md-offset-4 col-md-2 text-c">代理商</a><a href="{:url('index/merchant')}" class="col-md-2 text-c active">商户</a>
+    </div>
+    <form action="" method="post" class="form form-horizontal" id="demoform-1">
+        <legend>商户注册：请认真填写以下信息</legend>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-4">用户名：</label>
+            <div class="formControls col-xs-4 col-sm-4">
+                <input class="input-text" name="user_name" placeholder="用户名" type="text">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-4">手机号：</label>
+            <div class="formControls col-xs-4 col-sm-4">
+                <input class="input-text" name="phone" placeholder="手机号" type="text">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-4">验证码：</label>
+            <div class="formControls col-xs-4 col-sm-4">
+                <div class="col-sm-8" style="padding-left: 0">
+                    <input class="input-text" name="code" placeholder="验证码" type="text">
+                </div>
+                <div class="col-sm-4" style="text-align: right">
+                    <a href="#" class="btn btn-primary col-sm-4">发送验证码</a>
+                </div>
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-4">邮箱：</label>
+            <div class="formControls col-xs-4 col-sm-4">
+                <input class="input-text" name="email" placeholder="邮箱" type="text">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-4">密码：</label>
+            <div class="formControls col-xs-4 col-sm-4">
+                <input class="input-text" name="password" placeholder="密码" type="password">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-4">确认密码：</label>
+            <div class="formControls col-xs-4 col-sm-4">
+                <input class="input-text" name="repassword" placeholder="确认密码" type="password">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-4">平台协议：</label>
+            <div class="formControls skin-minimal col-xs-4 col-sm-4">
+                <div class="check-box" style="padding-left: 0">
+                    <input type="checkbox" id="checkbox-1">
+                    <label for="checkbox-1"><a href="#" style="color: #00a0e9">商户协议</a></label>
+                </div>
+            </div>
+        </div>
+        <div class="row cl">
+            <div class="col-xs-4 col-sm-4 col-xs-offset-4 col-sm-offset-4">
+                <input class="btn btn-block btn-primary radius" value="提交" type="submit">
+            </div>
+        </div>
+    </form>
+</div>
+{/block}

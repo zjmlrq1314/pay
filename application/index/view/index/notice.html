@@ -1,0 +1,13 @@
+{extend name="template/base" /}
+{block name="title"}{$notice.title}{/block}
+{block name="content"}
+<div class="page-container">
+    <div class="panel panel-default">
+        <div class="panel-header">{$notice.title}</div>
+        <div class="panel-body">{$notice.content|htmlspecialchars_decode}</div>
+    </div>
+    {volist name="sources" id="vo"}
+    <a class="btn btn-success" href="/index/index/download/id/{$vo.id}" target="download">{$vo.title}</a>
+    {/volist}
+</div>
+{/block}

@@ -12,35 +12,21 @@ class Agent extends Controller
     use \app\admin\traits\controller\Controller;
     // 方法黑名单
     protected static $blacklist = [];
-//   /*
-//    * 代理商的  申请列表
-//    * */
-//    public function index()
-//    {
-//        $model  = $this->getModel();
-//        $map = $this->search($model);
-//        $where = array('status'=>0);
-//        if($map){
-//            $where = $map;
-//        }
-//        $this->datalist($model, $where);
-//        return $this->view->fetch();
-//    }
-//    /**
-//     * 代理商列表
-//     * @return string
-//     */
-//    public function lists()
-//    {
-//        $model  = $this->getModel();
-//        $map = $this->search($model);
-//        $where = array('status'=>array('neq',0));
-//        if($map){
-//            $where = $map;
-//        }
-//        $this->datalist($model, $where);
-//        return $this->view->fetch();
-//    }
+
+    /*
+ * 模糊查询*/
+    protected function filter(&$map)
+    {
+        if ($this->request->param("user_name")) {
+            $map['user_name'] = ["like", "%" . $this->request->param("user_name") . "%"];
+        }
+        if ($this->request->param("email")) {
+            $map['email'] = ["like", "%" . $this->request->param("email") . "%"];
+        }
+        if ($this->request->param("phone")) {
+            $map['phone'] = ["like", "%" . $this->request->param("phone") . "%"];
+        }
+    }
 
     /**
      * 代理商列表  修改信息

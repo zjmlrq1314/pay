@@ -30,10 +30,13 @@ class Upload extends Controller
     {
         $file = $this->request->file('file');
         $path = ROOT_PATH . 'public/tmp/uploads/';
+
         $info = $file->move($path);
-        if (!$info) {
-            return ajax_return_error($file->getError());
-        }
+
+//        if (!$info) {
+//            return ajax_return_error($file->getError());
+//        }
+
         $data = $this->request->root() . '/tmp/uploads/' . $info->getSaveName();
         $insert = [
             'cate'     => 3,

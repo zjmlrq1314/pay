@@ -1,0 +1,4 @@
+<td><input type="checkbox" name="id[]" value="{$vo.id}"></td>
+<td>{$vo.title}</td>
+<td>{$vo.content|htmlspecialchars_decode|strip_tags|msubstr=0,50}</td>
+<td>{$vo.status|get_status}</td>

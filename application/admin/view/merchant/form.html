@@ -5,13 +5,16 @@
            value="{$Request.param.phone}">
     <input type="text" class="input-text" style="width:250px" placeholder="邮箱" name="email"
            value="{$Request.param.email}">
+
     <span class="select-box" style="width: 250px;">
-    <!--<select name="agent_id" class="select">
-        {volist name="agent" id="vo"}
+      <select class="select" size="1" name="agent_id">
+          <option value="" selected>全部</option>
+         {volist name="agent" id="vo"}
             <option value="{$vo.id}">{$vo.user_name}</option>
         {/volist}
-    </select>-->
+      </select>
     </span>
+
     <span class="select-box" style="width: 250px;">
       <select class="select" size="1" name="status">
         <option value="" selected>全部</option>
