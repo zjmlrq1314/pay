@@ -130,6 +130,14 @@ function get_agent_name($id){
 }
 
 /**
+ * 获取公告主题
+ * @param $id
+ */
+function get_notice_name($id)
+{
+ return \think\Db::name('notice')->where(array('id'=>$id))->value('title');
+}
+/**
  * 显示状态
  * @param int $status     0|1|-1
  * @param bool $imageShow true只显示图标|false只显示文字
