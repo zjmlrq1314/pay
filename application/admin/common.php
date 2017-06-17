@@ -130,6 +130,15 @@ function get_agent_name($id){
 }
 
 /**
+ * 获取商户的名称
+ * @param $id
+ * @return mixed
+ */
+/*function get_merchant_name($id){
+    return \think\Db::name('merchant')->where(array('id'=>$id))->value('user_name');
+}*/
+
+/**
  * 获取公告主题
  * @param $id
  */

@@ -1,0 +1,13 @@
+<form class="mb-20" method="get" action="{:\\think\\Url::build($Request.action)}">
+    <input type="text" class="input-text" style="width:250px" placeholder="主题" name="title"
+           value="{$Request.param.title}">
+
+    <span class="select-box" style="width: 250px;">
+      <select class="select" size="1" name="status">
+        <option value="" selected>全部</option>
+        <option value="1">正常</option>
+        <option value="0">禁用</option>
+      </select>
+    </span>
+    <button type="submit" class="btn btn-success"><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
+</form>

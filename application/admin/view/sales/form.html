@@ -1,0 +1,29 @@
+<form class="mb-20" method="get" action="{:\\think\\Url::build($Request.action)}">
+    <input type="text" class="input-text" style="width:200px" placeholder="名称" name="user_name"
+           value="{$Request.param.name}">
+    <input type="text" class="input-text" style="width:200px" placeholder="电话" name="phone"
+           value="{$Request.param.phone}">
+    <input type="text" class="input-text" style="width:200px" placeholder="邮箱" name="email"
+           value="{$Request.param.email}">
+    <input type="text" class="input-text" style="width:200px" placeholder="商户名称" name="merchant"
+           value="{$Request.param.merchant}">
+
+    <span class="select-box" style="width: 200px;">
+      <select class="select" size="1" name="agent_id">
+          <option value="" selected>全部</option>
+         {volist name="agent" id="vo"}
+            <option value="{$vo.id}">{$vo.user_name}</option>
+        {/volist}
+      </select>
+    </span>
+
+    <span class="select-box" style="width: 200px;">
+      <select class="select" size="1" name="status">
+        <option value="" selected>全部</option>
+        <option value="1">正常</option>
+        <option value="0">禁用</option>
+        <option value="-1">未审核</option>
+      </select>
+    </span>
+    <button type="submit" class="btn btn-success"><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
+</form>

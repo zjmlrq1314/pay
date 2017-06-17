@@ -29,6 +29,11 @@ class Index extends Controller
         return $this->view->fetch();
     }
 
+    /**
+     * 公告在首页显示
+     * @param null $id
+     * @return string
+     */
     public function notice($id = null)
     {
         if(!is_numeric($id)){
@@ -43,6 +48,11 @@ class Index extends Controller
         return $this->view->fetch();
     }
 
+    /**
+     * 资源列表的文件和图片下载
+     * @param int $id
+     * @return string
+     */
     public function download($id = 0)
     {
         $path = Db::name('source')->where(array('id'=>$id))->value('path');
