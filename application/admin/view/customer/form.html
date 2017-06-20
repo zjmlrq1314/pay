@@ -5,9 +5,15 @@
            value="{$Request.param.phone}">
     <input type="text" class="input-text" style="width:200px" placeholder="邮箱" name="email"
            value="{$Request.param.email}">
-    <input type="text" class="input-text" style="width:200px" placeholder="商户名称" name="merchant"
-           value="{$Request.param.merchant}">
 
+    <span class="select-box" style="width: 200px;">
+      <select class="select" size="1" name="merchant_id">
+          <option value="" selected>全部</option>
+         {volist name="merchant" id="vn"}
+            <option value="{$vn.id}">{$vn.user_name}</option>
+        {/volist}
+      </select>
+    </span>
     <span class="select-box" style="width: 200px;">
       <select class="select" size="1" name="agent_id">
           <option value="" selected>全部</option>

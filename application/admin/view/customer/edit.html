@@ -27,7 +27,17 @@
         <div class="row cl">
             <label class="form-label col-xs-3 col-sm-3">商户名称：</label>
             <div class="formControls col-xs-6 col-sm-6">
-                <input type="text" class="input-text" placeholder="商户名称" name="merchant" value="{$vo.merchant ?? ''}" >
+                <div class="select-box">
+                <select name="merchant_id" class="select">
+                {volist name="merchant" id="va"}
+                {if condition="$va['id'] eq $vo['merchant_id']"}
+                <option value="{$va.id}" selected>{$va.user_name}</option>
+                {else /}
+                <option value="{$va.id}">{$va.user_name}</option>
+                {/if}
+                {/volist}
+                </select>
+                    </div>
             </div>
             <div class="col-xs-3 col-sm-3"></div>
         </div>
@@ -36,11 +46,11 @@
             <div class="formControls col-xs-6 col-sm-6">
                 <div class="select-box">
                     <select name="agent_id" class="select">
-                        {volist name="agent" id="va"}
-                        {if condition="$va['id'] eq $vo['agent_id']"}
-                        <option value="{$va.id}" selected>{$va.user_name}</option>
+                        {volist name="agent" id="vn"}
+                        {if condition="$vn['id'] eq $vo['agent_id']"}
+                        <option value="{$vn.id}" selected>{$vn.user_name}</option>
                         {else /}
-                        <option value="{$va.id}">{$va.user_name}</option>
+                        <option value="{$vn.id}">{$vn.user_name}</option>
                         {/if}
                         {/volist}
                     </select>

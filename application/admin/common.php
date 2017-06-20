@@ -134,9 +134,9 @@ function get_agent_name($id){
  * @param $id
  * @return mixed
  */
-/*function get_merchant_name($id){
+function get_merchant_name($id){
     return \think\Db::name('merchant')->where(array('id'=>$id))->value('user_name');
-}*/
+}
 
 /**
  * 获取公告主题

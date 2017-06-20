@@ -49,6 +49,7 @@ class Merchant extends Controller
             if (!$updateData['id']) {
                 return ajax_return_adv_error("缺少参数ID");
             }
+            //启动事务
             Db::startTrans();
             try{
                 Db::name('merchant')->update($updateData);

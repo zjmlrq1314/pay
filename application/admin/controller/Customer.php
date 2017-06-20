@@ -26,8 +26,8 @@ class Customer extends Controller
         if ($this->request->param("phone")) {
             $map['phone'] = ["like", "%" . $this->request->param("phone") . "%"];
         }
-        if ($this->request->param("merchant")) {
-            $map['merchant'] = ["like", "%" . $this->request->param("merchant") . "%"];
+        if ($this->request->param("merchant_id")) {
+            $map['merchant_id'] = ["like", "%" . $this->request->param("merchant_id") . "%"];
         }
     }
     private function get_agent()
@@ -38,16 +38,22 @@ class Customer extends Controller
 
     public function beforeIndex()
     {
+        $merchant = Db::name('merchant')->select();
+        $this->view->assign('merchant',$merchant);
         $this->get_agent();
     }
 
     public function beforeAdd()
     {
-        $this->view->assign('vo',array('agent_id'=>-1));
+        $merchant = Db::name('merchant')->select();
+        $this->view->assign('merchant',$merchant);
+        $this->view->assign('vo',array('merchant_id'=>0,'agent_id'=>0));
         $this->get_agent();
     }
     public function beforeEdit()
     {
+        $merchant = Db::name('merchant')->select();
+        $this->view->assign('merchant',$merchant);
         $this->get_agent();
     }
 }
